@@ -21,7 +21,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
       id={id}
       className={`
         bg-gray-50
-        rounded-lg
+        rounded
         shadow-md
         overflow-hidden
         flex flex-col
