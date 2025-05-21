@@ -3,21 +3,80 @@ import FormField from "./components/FormField"
 import NavBar from "./components/NavBar"
 import Button from "./components/LinkButton"
 import CategoryCard from "./components/CategoryCard"
+import VerticalCard from "./components/VeritcalCard"
+import Footer from "./components/Footer"
+
+const PRODUCT_CARDS = [
+  {
+    title: "Linha Pro",
+    content: (
+      <p className="text-gray-700">
+        A Linha Smart oferece cobertura básica, ideal para quem quer segurança
+        a um preço acessível. Rede credenciada em todo o país com serviços
+        essenciais de ambulatório e internação.
+      </p>
+    ),
+  },
+  {
+    title: "Linha Porto Saúde",
+    content: (
+      <p className="text-gray-700">
+        Com a Linha Advance você tem um plus em atendimento — coberturas
+        ampliadas, exames especiais e reembolso parcial. Rede com hospitais
+        e clínicas premium.
+      </p>
+    ),
+  },
+  {
+    title: "Linha Tradicional",
+    content: (
+      <p className="text-gray-700">
+        A Linha Premium abrange planos com atendimento altamente qualificado,
+        reembolso no Brasil e exterior, e escolhas ilimitadas de prestadores.
+      </p>
+    ),
+  },
+  {
+    title: "Linha Porto Bairros",
+    content: (
+      <p className="text-gray-700">
+        A Linha Premium abrange planos com atendimento altamente qualificado,
+        reembolso no Brasil e exterior, e escolhas ilimitadas de prestadores.
+      </p>
+    ),
+  },
+];
 
 function App() {
 
   return(
-    <div className="h-screen">
+    <div className="flex flex-col h-screen">
       <NavBar />
-      <PageContainer id="home" className="bg-[#009fe5] py-16  px-4 sm:px-6 lg:px-8 ">
+      <PageContainer
+        id="home"
+        className="bg-[#009fe5] py-16 px-4 flex justify-center items-center gap-x-20"
+      >
+        {/* LEFT: Main heading + subtext */}
+        <div className="text-white text-4xl md:text-6xl font-bold text-right leading-tight">
+          Porto Seguro<br />
+          Sempre ao seu lado
+
+          {/* Subtext */}
+          <p className="mt-4 text-lg md:text-2xl font-normal opacity-80 text-right">
+            Seu caminho para proteção completa
+          </p>
+        </div>
+
+        {/* RIGHT: form (kept at 1/4 width here) */}
         <FormField
           id="name"
-          className="mb-4"
+          className="w-1/4"
           name="name"
-          placeholder="Name"
           value=""
         />
-        </PageContainer>
+      </PageContainer>
+
+
       <PageContainer id="benefits" className="bg-[#CFF2FB] font-bold justify-center gap-40 items-center py-16  px-4 sm:px-6 lg:px-8 ">
         Quer Marcar Consultas ou dúvidas sobre seu plano atual ?
         Já é Cliente?
@@ -66,6 +125,31 @@ function App() {
 
         </CategoryCard>
       </PageContainer>
+      <PageContainer
+        id="products"
+        className="flex font-bold justify-center gap-40 bg-gray-200 items-center"
+      >
+        {/* LEFT: Accordion cards */}
+        <div className="w-full lg:w-1/2 grid grid-cols-1 gap-6 ms-28 py-12">
+          {PRODUCT_CARDS.map(({ title, content }) => (
+            <VerticalCard key={title} title={title}>
+              {content}
+            </VerticalCard>
+          ))}
+        </div>
+
+        {/* RIGHT: Image */}
+        <div className="w-full lg:w-1/2 flex justify-center h-full"> {/* wrapper fills height */}
+          <img
+            src="/running.png"
+            alt="Detalhes dos produtos"
+            className="object-cover shadow-lg h-100"
+          />
+        </div>
+      </PageContainer>
+
+
+      <Footer />
     </div>
   
   )

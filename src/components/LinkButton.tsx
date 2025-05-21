@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
         <button
             id={id}
             type={type}
-            className={`bg-blue-500 text-white font-bold py-4 px-6 rounded ${className}`}
+            className={`bg-blue-500 text-white font-bold py-4 px-6 rounded hover:bg-blue-600 ${className}`}
             onClick={handleClick}
         >
             {children}

@@ -10,7 +10,7 @@ const PageContainer: React.FC<SectionProps> = ({ id, className = "", children })
   return (
     <section
       id={id}
-      className={`flex w-full mx-auto ${className}`}
+      className={`flex w-full ${className}`}
     >
       {children}
     </section>

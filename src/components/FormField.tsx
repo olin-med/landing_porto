@@ -1,64 +1,90 @@
 import React from "react";
 
 type InputProps = {
-    id?: string;
-    className?: string;
-    name?: string;
-    email?: string;
-    phone?: string;
-    numberOfLives?: string;
-    typeOfPlan?: string;
-    placeholder?: string;
-    value?: string;
-}
+className?: string;
+id?: string;
+name?: string;
+value?: string;
+email?: string;
+phone?: string;
+numberOfLives?: string;
+typeOfPlan?: string;
+};
 
 const FormField: React.FC<InputProps> = ({
+className = "",
+id = "",
+name = "",
+value = "",
+email = "",
+phone = "",
+numberOfLives = "",
+typeOfPlan = "",
 }) => {
-    return (
-        <div className="flex w-full justify-end">
-            <div className="mb-4 w-1/3 bg-gray-200 p-6">
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Name"
-                    className="w-full p-2 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Email"
-                    className="w-full p-2 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mt-4"
-                />
-                <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="Phone"
-                    className="w-full p-2 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mt-4"
-                />
-                <input
-                    type="text"
-                    id="numberOfLives"
-                    name="numberOfLives"
-                    placeholder="Number of Lives"
-                    className="w-full p-2 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mt-4"
-                />
-                <select
-                    id="typeOfPlan"
-                    name="typeOfPlan"
-                    className="w-full p-2 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mt-4"
-                >
-                    <option value="" disabled selected>Select Type of Plan</option>
-                    <option value="basic">Basic</option>
-                    <option value="premium">Premium</option>
-                    <option value="family">Family</option>
-                    <option value="business">Business</option>
-                </select>
-            </div>
-        </div>
-        
-    );
+return (
+    <div className={className}>
+    
+    {/* Form Fields */}
+    <div className="mb-4 bg-gray-200 p-6 space-y-4 rounded">
+        <h2 className="text-2xl font-bold mb-4">Solicite sua Cotação</h2>
+        {/* Name */}
+        <input
+        type="text"
+        id={id}
+        name={name}
+        placeholder="Nome"
+        defaultValue={value}
+        className="w-full p-2 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        {/* Email */}
+        <input
+        type="email"
+        id={id ? `${id}-email` : "email"}
+        name="email"
+        placeholder="Email"
+        defaultValue={email}
+        className="w-full p-2 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        {/* Phone */}
+        <input
+        type="tel"
+        id={id ? `${id}-phone` : "phone"}
+        name="phone"
+        placeholder="Celular"
+        defaultValue={phone}
+        className="w-full p-2 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        {/* Number of Lives */}
+        <input
+        type="text"
+        id={id ? `${id}-lives` : "numberOfLives"}
+        name="numberOfLives"
+        placeholder="Número de vidas"
+        defaultValue={numberOfLives}
+        className="w-full p-2 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        {/* Type of Plan */}
+        <select
+        id={id ? `${id}-plan` : "typeOfPlan"}
+        name="typeOfPlan"
+        defaultValue={typeOfPlan}
+        className="w-full p-2 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+        <option value="" disabled>
+            Selecione o plano
+        </option>
+        <option value="basic">Linha Pro</option>
+        <option value="premium">Linha Porto Saúde</option>
+        <option value="family">Linha Tradicional</option>
+        <option value="business">Linha Porto Bairros</option>
+        </select>
+    </div>
+    </div>
+);
 };
+
 export default FormField;
