@@ -16,7 +16,7 @@ const VerticalCard: React.FC<VerticalCardProps> = ({ title, children }) => {
       {/* Header / toggle button */}
       <button
         type="button"
-        className={`w-full text-left px-4 py-3 font-medium focus:outline-none ${
+        className={`w-full text-left px-4 py-3 font-medium cursor-pointer focus:outline-none ${
           open ? "bg-gray-100" : "bg-white"
         }`}
         onClick={() => setOpen((prev) => !prev)}
