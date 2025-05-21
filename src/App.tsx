@@ -122,7 +122,7 @@ function App() {
         <Button
           id="submit"
           type="submit"
-          className="mt-4 lg:mt-0"
+          className="mt-4 lg:mt-0 cursor-pointer"
           link="https://www.portoseguro.com.br/porto-seguro-saude"
         >
           Visite a Central de Clientes

@@ -16,7 +16,7 @@ const PhoneButton: React.FC = () => {
     <button
       type="button"
       onClick={handleClick}
-      className="flex items-center bg-[#009fe5] hover:bg-[#007ee5] text-white font-bold py-2 px-4 rounded"
+      className="flex items-center cursor-pointer bg-[#009fe5] hover:bg-[#007ee5] text-white font-bold py-2 px-4 rounded"
     >
       {/* slightly larger, bold icon */}
       Ligar Agora

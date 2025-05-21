@@ -21,7 +21,7 @@ return (
     
         <button
         type="button"
-        className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded"
+        className="bg-green-500 hover:bg-green-600 cursor-pointer text-white font-semibold py-2 px-4 rounded"
         onClick={handleClick}
         >   
             <div className="flex flex-row justify-center items-center">

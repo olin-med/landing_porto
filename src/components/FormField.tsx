@@ -93,6 +93,7 @@ const FormField: React.FC<InputProps> = ({
         <button
           type="submit"
           className="
+            cursor-pointer
             w-full
             py-3
             mt-2
