@@ -115,7 +115,7 @@ function App() {
         "
       >
         <div className="ext-base md:text-lg lg:text-xl lg:text-right">
-          Quer Marcar Consultas ou dúvidas sobre seu plano atual? <br />
+          Quer Marcar Consultas ou dúvidas sobre seu plano atual? <br className="hidden lg:block" />
           Já é Cliente?
         </div>
         <Button
