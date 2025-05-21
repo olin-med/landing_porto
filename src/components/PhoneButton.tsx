@@ -4,7 +4,7 @@ import { PiPhone } from "react-icons/pi";
 
 const PhoneButton: React.FC = () => {
   // Hard‑coded phone number (international format, no "+" or dashes)
-  const phone = "15551234567";
+  const phone = "5511984990470";
   const href = `tel:${phone}`;
 
   const handleClick = () => {
