@@ -245,7 +245,7 @@ function App() {
           </div>
         </div>
       </PageContainer>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col">
       {/* only shows on mobile */}
       <MobileWhatsAppFloating />
     </div>
