@@ -1,9 +1,10 @@
+// src/App.tsx
 import PageContainer from "./components/PageContainer"
 import FormField from "./components/FormField"
 import NavBar from "./components/NavBar"
 import Button from "./components/LinkButton"
 import CategoryCard from "./components/CategoryCard"
-import VerticalCard from "./components/VeritcalCard"
+import VerticalCard from "./components/VerticalCard"
 import Footer from "./components/Footer"
 
 const PRODUCT_CARDS = [
@@ -45,58 +46,123 @@ const PRODUCT_CARDS = [
       </p>
     ),
   },
-];
+]
 
 function App() {
-
-  return(
-    <div className="flex flex-col h-screen">
+  return (
+    <div className="flex flex-col min-h-screen">
       <NavBar />
+
+      {/* HOME */}
       <PageContainer
         id="home"
-        className="bg-[#009fe5] py-16 px-4 flex justify-center items-center gap-x-20"
+        className="
+          bg-[#009fe5]
+          py-16 px-4
+          flex flex-col lg:flex-row            /* stack on mobile, row on lg+ */
+          justify-center items-center
+          gap-y-8 lg:gap-x-20                  /* vertical gaps on mobile */
+        "
       >
         {/* LEFT: Main heading + subtext */}
-        <div className="text-white text-4xl md:text-6xl font-bold text-right leading-tight">
-          Porto Seguro<br />
+        <div
+          className="
+            text-white
+            text-3xl md:text-4xl lg:text-6xl    /* scale up across breakpoints */
+            font-bold
+            text-center lg:text-right          /* center on mobile, right on lg+ */
+            leading-tight
+          "
+        >
+          Porto Seguro
+          <br />
           Sempre ao seu lado
 
-          {/* Subtext */}
-          <p className="mt-4 text-lg md:text-2xl font-normal opacity-80 text-right">
+          <p
+            className="
+              mt-4
+              text-base md:text-lg lg:text-2xl   /* smaller on mobile */
+              font-normal
+              opacity-80
+              text-center lg:text-right
+            "
+          >
             Seu caminho para proteção completa
           </p>
         </div>
 
-        {/* RIGHT: form (kept at 1/4 width here) */}
+        {/* RIGHT: form */}
         <FormField
           id="name"
-          className="w-1/4"
+          className="
+            w-full       /* full width on mobile */
+            sm:w-3/4     /* 75% on sm */
+            md:w-1/2     /* 50% on md */
+            lg:w-1/4     /* 25% on lg+ */
+          "
           name="name"
           value=""
         />
       </PageContainer>
 
 
-      <PageContainer id="benefits" className="bg-[#CFF2FB] font-bold justify-center gap-40 items-center py-16  px-4 sm:px-6 lg:px-8 ">
-        Quer Marcar Consultas ou dúvidas sobre seu plano atual ?
-        Já é Cliente?
+      {/* BENEFITS */}
+      <PageContainer
+        id="benefits"
+        className="
+          bg-[#CFF2FB]
+          py-16 px-4 sm:px-6 lg:px-8
+          flex flex-col lg:flex-row
+          items-center justify-center
+          text-center lg:text-left
+          gap-y-4 lg:gap-x-40
+        "
+      >
+        <div>Quer Marcar Consultas ou dúvidas sobre seu plano atual ? Já é Cliente?</div>
         <Button
           id="submit"
           type="submit"
-          className="cursor-pointer"
+          className="mt-4 lg:mt-0"
           link="https://www.portoseguro.com.br/porto-seguro-saude"
         >
           Visite a Central de Clientes 
         </Button>
       </PageContainer>
-      <PageContainer id="advertising" className="bg-[#404084] flex font-bold justify-center gap-40 items-center">
-        <img src="/health.png" alt="consulta" className="h-80"/>
-        <div className="flex flex-col h-full w-2/3 py-16 text-white gap-y-8">
-          <span>Não é Cliente?</span>
-          <span>Quer saber mais sobre nossos planos?</span>
+
+
+      {/* ADVERTISING */}
+      <PageContainer
+        id="advertising"
+        className="
+          bg-[#404084]
+          py-16 px-4 sm:px-6 lg:px-8
+          flex flex-col lg:flex-row
+          items-center justify-center
+          text-center lg:text-left
+          gap-y-8 lg:gap-x-40
+        "
+      >
+        <img
+          src="/health.png"
+          alt="consulta"
+          className="h-56 sm:h-64 lg:h-80 mx-auto lg:mx-0 rounded"
+        />
+        <div className="text-white space-y-2">
+          <div>Não é Cliente?</div>
+          <div>Quer saber mais sobre nossos planos?</div>
         </div>
       </PageContainer>
-      <PageContainer id="categories" className="grid grid-cols-4 gap-8 auto-rows-fr py-16 bg-[#CFF2FB] px-4 sm:px-6 lg:px-8 ">
+
+
+      {/* CATEGORIES */}
+      <PageContainer
+        id="categories"
+        className="
+          bg-[#CFF2FB] py-16 px-4 sm:px-6 lg:px-8
+          grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
+          gap-6 lg:gap-8
+        "
+      >
         <CategoryCard id="category1" title="Linha Pro" imageUrl="/familia1.png">
           <p>- Empresas de 3 a 499 vidas;</p>
           <p>- Abrangência regional;</p>
@@ -125,12 +191,21 @@ function App() {
 
         </CategoryCard>
       </PageContainer>
+
+
+      {/* PRODUCTS ACCORDION + IMAGE */}
       <PageContainer
         id="products"
-        className="flex font-bold justify-center gap-40 bg-[#404084] items-center"
+        className="
+          bg-[#404084]
+          py-16 px-4 sm:px-6 lg:px-8
+          flex flex-col lg:flex-row
+          items-stretch justify-center
+          gap-y-8 lg:gap-x-40
+        "
       >
-        {/* LEFT: Accordion cards */}
-        <div className="w-full lg:w-1/2 grid grid-cols-1 gap-6 ms-28 py-12">
+        {/* Accordion cards */}
+        <div className="w-full lg:w-1/2 grid grid-cols-1 gap-6">
           {PRODUCT_CARDS.map(({ title, content }) => (
             <VerticalCard key={title} title={title}>
               {content}
@@ -138,20 +213,18 @@ function App() {
           ))}
         </div>
 
-        {/* RIGHT: Image */}
-        <div className="w-full lg:w-1/2 flex justify-center h-full"> {/* wrapper fills height */}
+        {/* Full‑height image */}
+        <div className="w-full lg:w-1/2 h-auto lg:h-full flex justify-center">
           <img
             src="/running.png"
             alt="Detalhes dos produtos"
-            className="object-cover shadow-lg h-100"
+            className="h-full w-auto object-cover shadow-lg rounded"
           />
         </div>
       </PageContainer>
 
-
       <Footer />
     </div>
-  
   )
 }
 
