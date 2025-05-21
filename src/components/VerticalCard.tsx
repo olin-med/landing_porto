@@ -12,7 +12,7 @@ const VerticalCard: React.FC<VerticalCardProps> = ({ title, children }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+    <div className="bg-white border border-gray-200 rounded overflow-hidden shadow-sm">
       {/* Header / toggle button */}
       <button
         type="button"
