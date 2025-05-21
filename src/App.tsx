@@ -114,8 +114,9 @@ function App() {
           gap-y-4 lg:gap-x-40
         "
       >
-        <div className="ext-base md:text-lg lg:text-xl">
-          Quer Marcar Consultas ou dúvidas sobre seu plano atual? Já é Cliente?
+        <div className="ext-base md:text-lg lg:text-xl lg:text-right">
+          Quer Marcar Consultas ou dúvidas sobre seu plano atual? <br />
+          Já é Cliente?
         </div>
         <Button
           id="submit"
