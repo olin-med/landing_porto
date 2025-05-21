@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar"
 import Button from "./components/LinkButton"
 import CategoryCard from "./components/CategoryCard"
 import VerticalCard from "./components/VerticalCard"
+import MobileWhatsAppFloating from "./components/MobileWhatsAppFloating"
 import Footer from "./components/Footer"
 
 const PRODUCT_CARDS = [
@@ -244,6 +245,10 @@ function App() {
           </div>
         </div>
       </PageContainer>
+      <div className="flex flex-col min-h-screen">
+      {/* only shows on mobile */}
+      <MobileWhatsAppFloating />
+    </div>
 
       <Footer />
     </div>
