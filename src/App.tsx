@@ -127,7 +127,7 @@ function App() {
       </PageContainer>
       <PageContainer
         id="products"
-        className="flex font-bold justify-center gap-40 bg-gray-200 items-center"
+        className="flex font-bold justify-center gap-40 bg-[#404084] items-center"
       >
         {/* LEFT: Accordion cards */}
         <div className="w-full lg:w-1/2 grid grid-cols-1 gap-6 ms-28 py-12">
