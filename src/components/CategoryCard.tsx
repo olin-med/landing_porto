@@ -23,7 +23,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
         bg-gray-50
         rounded-lg
         shadow-md
-        overflow-hidden      /* ensure rounded corners clip the image */
+        overflow-hidden
         flex flex-col
         ${className}
       `}
