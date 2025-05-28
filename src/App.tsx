@@ -142,7 +142,7 @@ function App() {
         "
       >
         <img
-          src="/health.png"
+          src="/health.avif"
           alt="consulta"
           className="h-56 sm:h-64 lg:h-80 mx-auto lg:mx-0 rounded"
         />
@@ -169,24 +169,24 @@ function App() {
 
         {/* Cards grid */}
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          <CategoryCard id="category1" title="Linha Pro" imageUrl="/familia1.png">
+          <CategoryCard id="category1" title="Linha Pro" imageUrl="/familia1.avif">
             <p>- Empresas de 3 a 499 vidas;</p>
             <p>- Abrangência regional;</p>
             <p>- Custo-benefício.</p>
           </CategoryCard>
-          <CategoryCard id="category2" title="Linha Porto Saúde" imageUrl="/corporate.png">
+          <CategoryCard id="category2" title="Linha Porto Saúde" imageUrl="/corporate.avif">
             <p>- Pequenas, médias e grandes empresas;</p>
             <p>- Abrangência nacional;</p>
             <p>- Rede otimizada;</p>
             <p>- Reembolso.</p>
           </CategoryCard>
-          <CategoryCard id="category3" title="Linha Tradicional" imageUrl="/health1.png">
+          <CategoryCard id="category3" title="Linha Tradicional" imageUrl="/health1.avif">
             <p>- Para pequenas e médias empresas;</p>
             <p>- Abrangência nacional;</p>
             <p>- Ampla rede referenciada;</p>
             <p>- Reembolso.</p>
           </CategoryCard>
-          <CategoryCard id="category4" title="Linha Porto Bairros" imageUrl="/health2.png">
+          <CategoryCard id="category4" title="Linha Porto Bairros" imageUrl="/health2.avif">
             <p>- Empresas de 3 a 99 vidas;</p>
             <p>- Abrangência municipal;</p>
             <p>- Hospital e laboratório no seu bairro;</p>
@@ -235,9 +235,10 @@ function App() {
             </div>
 
             {/* Full‑height image */}
-            <div className="w-full lg:w-1/2 h-auto lg:h-full flex justify-center">
+            {/* inside your existing flex */}
+            <div className="w-full lg:w-1/2 h-[350px] flex justify-center">
               <img
-                src="/running.png"
+                src="/running.avif"
                 alt="Detalhes dos produtos"
                 className="h-full w-auto object-cover shadow-lg rounded"
               />

@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
     <nav className="bg-gray-200 p-4">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <img src="/logo_porto.png" alt="Logo" className="w-30" />
+        <img src="/logo_porto.avif" alt="Logo" className="w-30" />
 
         {/* Desktop menu */}
         <div className="hidden md:flex items-center gap-x-6">
