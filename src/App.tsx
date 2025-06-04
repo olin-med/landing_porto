@@ -3,6 +3,7 @@ import PageContainer from "./components/PageContainer"
 import FormField from "./components/FormField"
 import NavBar from "./components/NavBar"
 import Button from "./components/LinkButton"
+import FormButton from "./components/FormButton"
 import CategoryCard from "./components/CategoryCard"
 import VerticalCard from "./components/VerticalCard"
 import MobileWhatsAppFloating from "./components/MobileWhatsAppFloating"
@@ -49,71 +50,55 @@ const PRODUCT_CARDS = [
   },
 ]
 
+// ... imports mantidos
+
 function App() {
   return (
     <div className="flex flex-col min-h-screen">
       <NavBar />
 
-      {/* HOME */}
+      {/* ─── MOBILE: header over background, form below ─── */}
+      <section className="block lg:hidden bg-[#009fe5]">
+        <div className="w-full py-16 px-4 flex items-center min-h-[450px] relative justify-center">
+          <div className="text-white text-3xl md:text-4xl font-bold text-center leading-tight">
+            Porto Seguro
+            <br />
+            Sempre ao seu lado
+            <p className="mt-4 text-base md:text-lg font-normal opacity-80">
+              Seu caminho para proteção completa
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── DESKTOP: hero with side-by-side layout ─── */}
       <PageContainer
         id="home"
-        className="
-          bg-[#009fe5]
-          py-16 px-4
-          flex flex-col lg:flex-row
-          justify-center items-center
-          gap-y-8 lg:gap-x-20
-        "
+        className="hidden lg:flex bg-[#009fe5] py-16 px-4 flex-row justify-center items-center gap-x-20"
       >
-        <div
-          className="
-            text-white
-            text-3xl md:text-4xl lg:text-6xl
-            font-bold
-            text-center lg:text-right
-            leading-tight
-          "
-        >
+        <div className="text-white text-3xl md:text-4xl lg:text-6xl font-bold text-center lg:text-right leading-tight">
           Porto Seguro
           <br />
           Sempre ao seu lado
-          <p
-            className="
-              mt-4
-              text-base md:text-lg lg:text-2xl
-              font-normal
-              opacity-80
-              text-center lg:text-right
-            "
-          >
+          <p className="mt-4 text-base md:text-lg lg:text-2xl font-normal opacity-80 text-center lg:text-right">
             Seu caminho para proteção completa
           </p>
         </div>
 
         <FormField
           id="name"
-          className="
-            w-full
-            sm:w-3/4
-            md:w-1/2
-            lg:w-1/4
-          "
+          className="w-full sm:w-3/4 md:w-1/2 lg:w-1/4"
           name="name"
           value=""
         />
       </PageContainer>
 
+      
+
       {/* BENEFITS */}
       <PageContainer
         id="benefits"
-        className="
-          bg-[#CFF2FB]
-          py-16 px-4 sm:px-6 lg:px-8
-          flex flex-col lg:flex-row
-          items-center justify-center
-          text-center lg:text-left
-          gap-y-4 lg:gap-x-40
-        "
+        className="bg-[#CFF2FB] py-16 px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-center text-center lg:text-left gap-y-4 lg:gap-x-40"
       >
         <div className="ext-base md:text-lg lg:text-xl lg:text-right">
           Quer Marcar Consultas ou dúvidas sobre seu plano atual? <br className="hidden lg:block" />
@@ -132,14 +117,7 @@ function App() {
       {/* ADVERTISING */}
       <PageContainer
         id="advertising"
-        className="
-          bg-[#404084]
-          py-16 px-4 sm:px-6 lg:px-8
-          flex flex-col lg:flex-row
-          items-center justify-center
-          text-center lg:text-left
-          gap-y-8 lg:gap-x-40
-        "
+        className="bg-[#404084] py-16 px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-center text-center lg:text-left gap-y-8 lg:gap-x-40"
       >
         <img
           src="/health.avif"
@@ -149,25 +127,25 @@ function App() {
         <div className="text-white space-y-2 ext-base md:text-lg lg:text-xl">
           <div>Não é Cliente?</div>
           <div>Quer saber mais sobre nossos planos?</div>
+          <FormButton
+            mobileScrollTargetId="home2"
+            desktopScrollTargetId="home"
+            className="mt-4 lg:mt-0 text-black cursor-pointer bg-[#CFF2FB]"
+          >
+            Solicite uma Cotção
+          </FormButton>
         </div>
       </PageContainer>
 
       {/* CATEGORIES */}
       <PageContainer
         id="categories"
-        className="
-          bg-[#CFF2FB]
-          py-16 px-4 sm:px-6 lg:px-8
-          flex flex-col
-          items-center
-        "
+        className="bg-[#CFF2FB] py-16 px-4 sm:px-6 lg:px-8 flex flex-col items-center"
       >
-        {/* Section title */}
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8">
           Nossas Categorias de Planos
         </h2>
 
-        {/* Cards grid */}
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           <CategoryCard id="category1" title="Linha Pro" imageUrl="/familia1.avif">
             <p>- Empresas de 3 a 499 vidas;</p>
@@ -195,37 +173,17 @@ function App() {
         </div>
       </PageContainer>
 
-      {/* PRODUCTS ACCORDION + IMAGE */}
+      {/* PRODUCTS */}
       <PageContainer
         id="products"
-        className="
-          bg-[#404084]
-          py-16 px-4 sm:px-6 lg:px-8
-          /* remove flex here so children stack by default */
-        "
+        className="bg-[#404084] py-16 px-4 sm:px-6 lg:px-8"
       >
-        {/* constrain width & center */}
         <div className="max-w-7xl mx-auto flex flex-col gap-y-8">
-          {/* 1) Title always on top */}
-          <h2
-            className="
-              text-center lg:text-left
-              text-2xl md:text-3xl lg:text-4xl
-              text-white font-bold
-            "
-          >
+          <h2 className="text-center lg:text-left text-2xl md:text-3xl lg:text-4xl text-white font-bold">
             Conheça os Nossos Produtos
           </h2>
 
-          {/* 2) Now your two columns: accordion + image */}
-          <div
-            className="
-              flex flex-col lg:flex-row
-              items-stretch justify-center
-              gap-y-8 lg:gap-x-40
-            "
-          >
-            {/* Accordion cards */}
+          <div className="flex flex-col lg:flex-row items-stretch justify-center gap-y-8 lg:gap-x-40">
             <div className="w-full lg:w-1/2 grid grid-cols-1 gap-6">
               {PRODUCT_CARDS.map(({ title, content }) => (
                 <VerticalCard key={title} title={title}>
@@ -234,8 +192,6 @@ function App() {
               ))}
             </div>
 
-            {/* Full‑height image */}
-            {/* inside your existing flex */}
             <div className="w-full lg:w-1/2 h-[350px] flex justify-center">
               <img
                 src="/running.avif"
@@ -246,14 +202,25 @@ function App() {
           </div>
         </div>
       </PageContainer>
+      {/* ─── MOBILE FORM BELOW HERO ─── */}
+      <PageContainer id="home2" className="block lg:hidden bg-gray-200">
+        <div className="px-4 pb-16">
+          <FormField
+            id="name"
+            name="name"
+            value=""
+            className="w-full sm:w-3/4 md:w-1/2 mx-auto"
+          />
+        </div>
+      </PageContainer>
+
       <div className="flex flex-col">
-      {/* only shows on mobile */}
-      <MobileWhatsAppFloating />
-    </div>
+        <MobileWhatsAppFloating />
+      </div>
 
       <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
