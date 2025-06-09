@@ -9,8 +9,6 @@ import VerticalCard from "./components/VerticalCard"
 import MobileWhatsAppFloating from "./components/MobileWhatsAppFloating"
 import Footer from "./components/Footer"
 
-import pro from "/pro.avif"
-import plus from "/plus.avif"
 import health from "/health2.avif"
 
 const PRODUCT_CARDS = [
