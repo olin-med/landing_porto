@@ -9,6 +9,10 @@ import VerticalCard from "./components/VerticalCard"
 import MobileWhatsAppFloating from "./components/MobileWhatsAppFloating"
 import Footer from "./components/Footer"
 
+import pro from "/pro.avif"
+import plus from "/plus.avif"
+import health from "/health2.avif"
+
 const PRODUCT_CARDS = [
   {
     title: "Linha Pro",
@@ -58,13 +62,18 @@ function App() {
       <NavBar />
 
       {/* ─── MOBILE: header over background, form below ─── */}
-      <section className="block lg:hidden bg-[#009fe5]">
+      <section className="block lg:hidden bg-[#009fe5]"
+      style={{
+              backgroundImage: `url(${health})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}>
         <div className="w-full py-16 px-4 flex items-center min-h-[450px] relative justify-center">
-          <div className="text-white text-3xl md:text-4xl font-bold text-center leading-tight">
+          <div className="text-[#009fe5] text-3xl md:text-4xl font-bold text-center leading-tight">
             Porto Seguro
             <br />
-            Sempre ao seu lado
-            <p className="mt-4 text-base md:text-lg font-normal opacity-80">
+            <p className="text-black">Sempre ao seu lado</p>
+            <p className="mt-4 text-white text-base md:text-lg font-normal opacity-80">
               Seu caminho para proteção completa
             </p>
           </div>
@@ -75,12 +84,17 @@ function App() {
       <PageContainer
         id="home"
         className="hidden lg:flex bg-[#009fe5] py-16 px-4 flex-row justify-center items-center gap-x-20"
+        style={{
+            backgroundImage: `url(${health})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+        }}
       >
-        <div className="text-white text-3xl md:text-4xl lg:text-6xl font-bold text-center lg:text-right leading-tight">
+        <div className="text-[#009fe5] text-3xl md:text-4xl lg:text-6xl font-bold text-center lg:text-right leading-tight">
           Porto Seguro
           <br />
-          Sempre ao seu lado
-          <p className="mt-4 text-base md:text-lg lg:text-2xl font-normal opacity-80 text-center lg:text-right">
+          <p className="text-black">Sempre ao seu lado</p>
+          <p className="mt-4 text-black text-base md:text-lg lg:text-2xl font-normal opacity-80 text-center lg:text-right">
             Seu caminho para proteção completa
           </p>
         </div>
